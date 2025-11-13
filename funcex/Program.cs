@@ -11,15 +11,32 @@ namespace funcex
     {
         static void Main(string[] args)
         {
-           // double kilo = 0;
-           // kilo =  ;
-
-            List<int> l = new List<int>();
-            l.Add(1);
-            l.Add(2);
-            l.Add(3);
-            Console.WriteLine(Listtotal(l));
+            Console.WriteLine(AddTwo(5,6));
+            Console.WriteLine(Biggest(5,6));
+            Console.WriteLine(isOdd(4));
         }
+        static bool isOdd(int x)
+        {
+            if (x % 2 == 1)
+            { 
+                return true;    
+            }
+            return false;
+        }
+        static int Biggest(int a, int b)
+        {
+            if (a > b)
+            { 
+                return a;
+            }
+            return b;
+        }
+        static int AddTwo(int a, int b)
+        {
+            int result = a + b;
+            return result;
+        }
+
 
         static int Listtotal(List<int> list)
         {
