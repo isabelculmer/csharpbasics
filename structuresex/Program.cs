@@ -8,36 +8,36 @@ namespace structuresex
 {
     internal class Program
     {
-        struct Car
+        struct TestResult
         {
-            public string make;
-            public string model;
-            public int price; 
+            public string name;
+            public int score;
         }
 
         static void Main(string[] args)
         {
-            Car myCar;
+            TestResult[] CAP1 = new TestResult[5];
 
-            myCar.make = "Nissan";
-            myCar.model = "Leaf";
-            myCar.price = 2000;
-
-            List<Car> carlist = new List<Car>();
-            carlist.Add(myCar);
-
-            myCar.make = "Fiat";
-            myCar.model = "Panda";
-            myCar.price = 200;
-
-            carlist.Add(myCar);
-
-            foreach (Car car in carlist)
+            Console.WriteLine("Enter 5 student results for CAP1:");
+            for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine(car.make);
-                Console.WriteLine(car.model);
-                Console.WriteLine(car.price);
+                TestResult temp;
+                Console.WriteLine($"Enter the name for student {i + 1}.");
+                temp.name = Console.ReadLine();
+                Console.WriteLine($"Enter the score for {temp.name}");
+                temp.score = int.Parse(Console.ReadLine());
+                CAP1[i] = temp;
             }
+            int num1 = 0;
+            int num2 = 0;
+            foreach (TestResult student in CAP1)
+            {
+                num1 += student.score;
+                if (num2 < student.score) num2 = student.score;
+            }
+            Console.WriteLine("Test statistics for CAP1:");
+            Console.WriteLine($"TOP: {num2}, AVG: {num1 / 5.0}");
+
         }
     }
 }

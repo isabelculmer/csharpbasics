@@ -12,32 +12,28 @@ namespace textfiles
     {
         static void Main(string[] args)
         {
+                        
             string fileName = "mytext.txt";
-            //string contents = File.ReadAllText(fileName);           
 
-            //Console.WriteLine(contents);
+            using (StreamWriter sw = new StreamWriter(fileName, false))
+            {
+                sw.Write("Another Pengiun");
+            }
 
-            //int count = 0;
-            //string[] lotsofcontent = File.ReadAllLines(fileName);
-            //foreach (string line in lotsofcontent)
-            //{
-            //    count++;
-            //    Console.WriteLine(count + " " + line);
-            //}
+            using (StreamReader sr = new StreamReader(fileName))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    if (line.Length > 6)
+                    {
+                        Console.WriteLine(line);
+                    }
+                }
+            }
 
-            //string stufftostore = "bubbly boo";
-            //File.WriteAllText("another.txt", stufftostore);
 
-            //string[] names = { "Legolas", "Arwen" };
-            //File.WriteAllLines("another.txt", names);
-
-            //List<string> morenames = new List<string>() {"Frodo", "Sam" };
-            //File.WriteAllLines("another.txt", morenames);
-
-            List<string> evenmorenames = new List<string>();
-            evenmorenames = new List<string>(File.ReadAllLines(fileName));
-            evenmorenames.Sort();
-            File.WriteAllLines("another.txt", evenmorenames);
+      
 
 
         }
